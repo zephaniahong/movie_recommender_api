@@ -1,5 +1,5 @@
 import csv
-
+import pandas as pd
 """
 Clean dataset
 
@@ -17,9 +17,11 @@ users = {}
 cleaned_users = {}
 movie_counter = {}
 cleaned_data = []
-with open('ratings.csv') as ratings:
-  ratings_reader = csv.reader(ratings, delimiter=',')
-  raw_data = list(ratings_reader)
+
+# delete timestamp column
+data = pd.read_csv('ratings.csv')
+data.drop('timestamp', axis=1, inplace=True)
+raw_data = data.values.tolist()
 
 # populate users dict with number of votes given for each userId
 for row in raw_data:
@@ -48,7 +50,11 @@ for row in first_clean:
   if movie_counter[row[1]] >= 10:
     cleaned_data.append(row)
 
-print(len(cleaned_data))
+fields = ['userId', 'movieId', 'rating']
+with open('cleaned_ratings.csv', 'w') as f:
+  write = csv.writer(f)
+  write.writerow(fields)
+  write.writerows(cleaned_data)
 
 
 
