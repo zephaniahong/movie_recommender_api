@@ -38,6 +38,8 @@ for row in raw_data:
   elif row[1] in movie_counter:
     movie_counter[row[1]] += 1
   row[2] = round((row[2] - 0.5) / (5-0.5),4) # normalize rating scale from 1 - 5 to 0 - 1
+  row[0] = int(row[0])
+  row[1] = int(row[1])
 
 # add key, value pairs of those that meet the requirement from users to cleaned_users
 for userId in users:
@@ -83,4 +85,4 @@ with open('cleaned_movies.csv', 'w') as f:
   write.writerow(movie_fields)
   write.writerows(cleaned_movies)
 
-    
+
