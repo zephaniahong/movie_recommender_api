@@ -27,7 +27,7 @@ rating_data = pd.read_csv('ratings.csv')
 rating_data.drop('timestamp', axis=1, inplace=True)
 raw_data = rating_data.values.tolist()
 
-# populate users dict with number of votes given for each userId
+# populate users dict and movie counter
 for row in raw_data:
   if row[0] not in users:
     users[row[0]] = 1
@@ -37,7 +37,7 @@ for row in raw_data:
     movie_counter[row[1]] = 1
   elif row[1] in movie_counter:
     movie_counter[row[1]] += 1
-  
+  row[2] = round((row[2] - 0.5) / (5-0.5),4) # normalize rating scale from 1 - 5 to 0 - 1
 
 # add key, value pairs of those that meet the requirement from users to cleaned_users
 for userId in users:
