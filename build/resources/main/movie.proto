@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_package = "com.proto.movie";
+option java_multiple_files = true;
+
+// this should be movie
+message Recommendation {
+    int32 id = 1;
+    string title = 2;
+}
+
+// recommendation should be a list of movies
+
+// should be a query by movie
+message RecommendationRequest {
+    Recommendation movie = 1;
+}
+
+message RecommendationResponse {
+    string result = 1;
+}
+
+service RecommendationService {
+    // Unary API
+    rpc Movie(RecommendationRequest) returns (RecommendationResponse) {};
+}

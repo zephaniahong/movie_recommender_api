@@ -1,0 +1,63 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.17'
+    }
+}
+
+
+plugins {
+    id 'java'
+    id 'com.google.protobuf' version '0.8.17'
+    id 'idea'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'io.grpc:grpc-netty-shaded:1.40.1'
+    implementation 'io.grpc:grpc-protobuf:1.40.1'
+    implementation 'io.grpc:grpc-stub:1.40.1'
+    compileOnly 'org.apache.tomcat:annotations-api:6.0.53' // necessary for Java 9+
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
+
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.17.3"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.40.1'
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// if you have source imports issues, add the below
+sourceSets.main.java.srcDir new File(buildDir, 'generated/source')
+idea {
+    module {
+        // Marks the already(!) added srcDir as "generated"
+        generatedSourceDirs += file('build/generated/source')
+    }
+}

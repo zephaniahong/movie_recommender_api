@@ -1,0 +1,41 @@
+RecommendationServer.java
+ RecommendationServer
+proto/main/grpc/com/proto/movie/RecommendationServiceGrpc.java
+ com.proto.movie.RecommendationServiceGrpc
+ com.proto.movie.RecommendationServiceGrpc$1
+ com.proto.movie.RecommendationServiceGrpc$2
+ com.proto.movie.RecommendationServiceGrpc$3
+ com.proto.movie.RecommendationServiceGrpc$MethodHandlers
+ com.proto.movie.RecommendationServiceGrpc$RecommendationServiceBaseDescriptorSupplier
+ com.proto.movie.RecommendationServiceGrpc$RecommendationServiceBlockingStub
+ com.proto.movie.RecommendationServiceGrpc$RecommendationServiceFileDescriptorSupplier
+ com.proto.movie.RecommendationServiceGrpc$RecommendationServiceFutureStub
+ com.proto.movie.RecommendationServiceGrpc$RecommendationServiceImplBase
+ com.proto.movie.RecommendationServiceGrpc$RecommendationServiceMethodDescriptorSupplier
+ com.proto.movie.RecommendationServiceGrpc$RecommendationServiceStub
+proto/main/java/com/proto/movie/RecommendationResponse.java
+ com.proto.movie.RecommendationResponse
+ com.proto.movie.RecommendationResponse$1
+ com.proto.movie.RecommendationResponse$Builder
+proto/main/java/com/proto/movie/RecommendationOrBuilder.java
+ com.proto.movie.RecommendationOrBuilder
+proto/main/java/com/proto/movie/RecommendationRequest.java
+ com.proto.movie.RecommendationRequest
+ com.proto.movie.RecommendationRequest$1
+ com.proto.movie.RecommendationRequest$Builder
+proto/main/java/com/proto/movie/RecommendationResponseOrBuilder.java
+ com.proto.movie.RecommendationResponseOrBuilder
+proto/main/java/com/proto/movie/Recommendation.java
+ com.proto.movie.Recommendation
+ com.proto.movie.Recommendation$1
+ com.proto.movie.Recommendation$Builder
+RecommendationServiceImpl.java
+ RecommendationServiceImpl
+proto/main/java/com/proto/movie/Movie.java
+ com.proto.movie.Movie
+RecommendationClient.java
+ RecommendationClient
+proto/main/java/com/proto/movie/RecommendationRequestOrBuilder.java
+ com.proto.movie.RecommendationRequestOrBuilder
+PostgreSQLJDBC.java
+ PostgreSQLJDBC
