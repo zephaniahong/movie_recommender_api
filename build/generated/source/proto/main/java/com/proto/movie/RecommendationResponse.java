@@ -21,7 +21,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private RecommendationResponse() {
-    recommendations_ = java.util.Collections.emptyList();
+    recommendations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -56,12 +56,12 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              recommendations_ = new java.util.ArrayList<com.proto.movie.Movie>();
+              recommendations_ = new com.google.protobuf.LazyStringArrayList();
               mutable_bitField0_ |= 0x00000001;
             }
-            recommendations_.add(
-                input.readMessage(com.proto.movie.Movie.parser(), extensionRegistry));
+            recommendations_.add(s);
             break;
           }
           default: {
@@ -80,7 +80,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        recommendations_ = java.util.Collections.unmodifiableList(recommendations_);
+        recommendations_ = recommendations_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -100,43 +100,38 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECOMMENDATIONS_FIELD_NUMBER = 1;
-  private java.util.List<com.proto.movie.Movie> recommendations_;
+  private com.google.protobuf.LazyStringList recommendations_;
   /**
-   * <code>repeated .Movie recommendations = 1;</code>
+   * <code>repeated string recommendations = 1;</code>
+   * @return A list containing the recommendations.
    */
-  @java.lang.Override
-  public java.util.List<com.proto.movie.Movie> getRecommendationsList() {
+  public com.google.protobuf.ProtocolStringList
+      getRecommendationsList() {
     return recommendations_;
   }
   /**
-   * <code>repeated .Movie recommendations = 1;</code>
+   * <code>repeated string recommendations = 1;</code>
+   * @return The count of recommendations.
    */
-  @java.lang.Override
-  public java.util.List<? extends com.proto.movie.MovieOrBuilder> 
-      getRecommendationsOrBuilderList() {
-    return recommendations_;
-  }
-  /**
-   * <code>repeated .Movie recommendations = 1;</code>
-   */
-  @java.lang.Override
   public int getRecommendationsCount() {
     return recommendations_.size();
   }
   /**
-   * <code>repeated .Movie recommendations = 1;</code>
+   * <code>repeated string recommendations = 1;</code>
+   * @param index The index of the element to return.
+   * @return The recommendations at the given index.
    */
-  @java.lang.Override
-  public com.proto.movie.Movie getRecommendations(int index) {
+  public java.lang.String getRecommendations(int index) {
     return recommendations_.get(index);
   }
   /**
-   * <code>repeated .Movie recommendations = 1;</code>
+   * <code>repeated string recommendations = 1;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the recommendations at the given index.
    */
-  @java.lang.Override
-  public com.proto.movie.MovieOrBuilder getRecommendationsOrBuilder(
-      int index) {
-    return recommendations_.get(index);
+  public com.google.protobuf.ByteString
+      getRecommendationsBytes(int index) {
+    return recommendations_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +149,7 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     for (int i = 0; i < recommendations_.size(); i++) {
-      output.writeMessage(1, recommendations_.get(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, recommendations_.getRaw(i));
     }
     unknownFields.writeTo(output);
   }
@@ -165,9 +160,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < recommendations_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, recommendations_.get(i));
+    {
+      int dataSize = 0;
+      for (int i = 0; i < recommendations_.size(); i++) {
+        dataSize += computeStringSizeNoTag(recommendations_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getRecommendationsList().size();
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -334,18 +333,13 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getRecommendationsFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (recommendationsBuilder_ == null) {
-        recommendations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      } else {
-        recommendationsBuilder_.clear();
-      }
+      recommendations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -373,15 +367,11 @@ private static final long serialVersionUID = 0L;
     public com.proto.movie.RecommendationResponse buildPartial() {
       com.proto.movie.RecommendationResponse result = new com.proto.movie.RecommendationResponse(this);
       int from_bitField0_ = bitField0_;
-      if (recommendationsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          recommendations_ = java.util.Collections.unmodifiableList(recommendations_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.recommendations_ = recommendations_;
-      } else {
-        result.recommendations_ = recommendationsBuilder_.build();
+      if (((bitField0_ & 0x00000001) != 0)) {
+        recommendations_ = recommendations_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000001);
       }
+      result.recommendations_ = recommendations_;
       onBuilt();
       return result;
     }
@@ -430,31 +420,15 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.proto.movie.RecommendationResponse other) {
       if (other == com.proto.movie.RecommendationResponse.getDefaultInstance()) return this;
-      if (recommendationsBuilder_ == null) {
-        if (!other.recommendations_.isEmpty()) {
-          if (recommendations_.isEmpty()) {
-            recommendations_ = other.recommendations_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureRecommendationsIsMutable();
-            recommendations_.addAll(other.recommendations_);
-          }
-          onChanged();
+      if (!other.recommendations_.isEmpty()) {
+        if (recommendations_.isEmpty()) {
+          recommendations_ = other.recommendations_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensureRecommendationsIsMutable();
+          recommendations_.addAll(other.recommendations_);
         }
-      } else {
-        if (!other.recommendations_.isEmpty()) {
-          if (recommendationsBuilder_.isEmpty()) {
-            recommendationsBuilder_.dispose();
-            recommendationsBuilder_ = null;
-            recommendations_ = other.recommendations_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            recommendationsBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getRecommendationsFieldBuilder() : null;
-          } else {
-            recommendationsBuilder_.addAllMessages(other.recommendations_);
-          }
-        }
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -486,244 +460,114 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<com.proto.movie.Movie> recommendations_ =
-      java.util.Collections.emptyList();
+    private com.google.protobuf.LazyStringList recommendations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRecommendationsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        recommendations_ = new java.util.ArrayList<com.proto.movie.Movie>(recommendations_);
+        recommendations_ = new com.google.protobuf.LazyStringArrayList(recommendations_);
         bitField0_ |= 0x00000001;
        }
     }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.proto.movie.Movie, com.proto.movie.Movie.Builder, com.proto.movie.MovieOrBuilder> recommendationsBuilder_;
-
     /**
-     * <code>repeated .Movie recommendations = 1;</code>
+     * <code>repeated string recommendations = 1;</code>
+     * @return A list containing the recommendations.
      */
-    public java.util.List<com.proto.movie.Movie> getRecommendationsList() {
-      if (recommendationsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(recommendations_);
-      } else {
-        return recommendationsBuilder_.getMessageList();
-      }
+    public com.google.protobuf.ProtocolStringList
+        getRecommendationsList() {
+      return recommendations_.getUnmodifiableView();
     }
     /**
-     * <code>repeated .Movie recommendations = 1;</code>
+     * <code>repeated string recommendations = 1;</code>
+     * @return The count of recommendations.
      */
     public int getRecommendationsCount() {
-      if (recommendationsBuilder_ == null) {
-        return recommendations_.size();
-      } else {
-        return recommendationsBuilder_.getCount();
-      }
+      return recommendations_.size();
     }
     /**
-     * <code>repeated .Movie recommendations = 1;</code>
+     * <code>repeated string recommendations = 1;</code>
+     * @param index The index of the element to return.
+     * @return The recommendations at the given index.
      */
-    public com.proto.movie.Movie getRecommendations(int index) {
-      if (recommendationsBuilder_ == null) {
-        return recommendations_.get(index);
-      } else {
-        return recommendationsBuilder_.getMessage(index);
-      }
+    public java.lang.String getRecommendations(int index) {
+      return recommendations_.get(index);
     }
     /**
-     * <code>repeated .Movie recommendations = 1;</code>
+     * <code>repeated string recommendations = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the recommendations at the given index.
      */
-    public Builder setRecommendations(
-        int index, com.proto.movie.Movie value) {
-      if (recommendationsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRecommendationsIsMutable();
-        recommendations_.set(index, value);
-        onChanged();
-      } else {
-        recommendationsBuilder_.setMessage(index, value);
-      }
-      return this;
+    public com.google.protobuf.ByteString
+        getRecommendationsBytes(int index) {
+      return recommendations_.getByteString(index);
     }
     /**
-     * <code>repeated .Movie recommendations = 1;</code>
+     * <code>repeated string recommendations = 1;</code>
+     * @param index The index to set the value at.
+     * @param value The recommendations to set.
+     * @return This builder for chaining.
      */
     public Builder setRecommendations(
-        int index, com.proto.movie.Movie.Builder builderForValue) {
-      if (recommendationsBuilder_ == null) {
-        ensureRecommendationsIsMutable();
-        recommendations_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        recommendationsBuilder_.setMessage(index, builderForValue.build());
-      }
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRecommendationsIsMutable();
+      recommendations_.set(index, value);
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .Movie recommendations = 1;</code>
-     */
-    public Builder addRecommendations(com.proto.movie.Movie value) {
-      if (recommendationsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRecommendationsIsMutable();
-        recommendations_.add(value);
-        onChanged();
-      } else {
-        recommendationsBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Movie recommendations = 1;</code>
+     * <code>repeated string recommendations = 1;</code>
+     * @param value The recommendations to add.
+     * @return This builder for chaining.
      */
     public Builder addRecommendations(
-        int index, com.proto.movie.Movie value) {
-      if (recommendationsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureRecommendationsIsMutable();
-        recommendations_.add(index, value);
-        onChanged();
-      } else {
-        recommendationsBuilder_.addMessage(index, value);
-      }
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRecommendationsIsMutable();
+      recommendations_.add(value);
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .Movie recommendations = 1;</code>
-     */
-    public Builder addRecommendations(
-        com.proto.movie.Movie.Builder builderForValue) {
-      if (recommendationsBuilder_ == null) {
-        ensureRecommendationsIsMutable();
-        recommendations_.add(builderForValue.build());
-        onChanged();
-      } else {
-        recommendationsBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Movie recommendations = 1;</code>
-     */
-    public Builder addRecommendations(
-        int index, com.proto.movie.Movie.Builder builderForValue) {
-      if (recommendationsBuilder_ == null) {
-        ensureRecommendationsIsMutable();
-        recommendations_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        recommendationsBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Movie recommendations = 1;</code>
+     * <code>repeated string recommendations = 1;</code>
+     * @param values The recommendations to add.
+     * @return This builder for chaining.
      */
     public Builder addAllRecommendations(
-        java.lang.Iterable<? extends com.proto.movie.Movie> values) {
-      if (recommendationsBuilder_ == null) {
-        ensureRecommendationsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, recommendations_);
-        onChanged();
-      } else {
-        recommendationsBuilder_.addAllMessages(values);
-      }
+        java.lang.Iterable<java.lang.String> values) {
+      ensureRecommendationsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, recommendations_);
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .Movie recommendations = 1;</code>
+     * <code>repeated string recommendations = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearRecommendations() {
-      if (recommendationsBuilder_ == null) {
-        recommendations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-      } else {
-        recommendationsBuilder_.clear();
-      }
+      recommendations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .Movie recommendations = 1;</code>
+     * <code>repeated string recommendations = 1;</code>
+     * @param value The bytes of the recommendations to add.
+     * @return This builder for chaining.
      */
-    public Builder removeRecommendations(int index) {
-      if (recommendationsBuilder_ == null) {
-        ensureRecommendationsIsMutable();
-        recommendations_.remove(index);
-        onChanged();
-      } else {
-        recommendationsBuilder_.remove(index);
-      }
+    public Builder addRecommendationsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureRecommendationsIsMutable();
+      recommendations_.add(value);
+      onChanged();
       return this;
-    }
-    /**
-     * <code>repeated .Movie recommendations = 1;</code>
-     */
-    public com.proto.movie.Movie.Builder getRecommendationsBuilder(
-        int index) {
-      return getRecommendationsFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .Movie recommendations = 1;</code>
-     */
-    public com.proto.movie.MovieOrBuilder getRecommendationsOrBuilder(
-        int index) {
-      if (recommendationsBuilder_ == null) {
-        return recommendations_.get(index);  } else {
-        return recommendationsBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .Movie recommendations = 1;</code>
-     */
-    public java.util.List<? extends com.proto.movie.MovieOrBuilder> 
-         getRecommendationsOrBuilderList() {
-      if (recommendationsBuilder_ != null) {
-        return recommendationsBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(recommendations_);
-      }
-    }
-    /**
-     * <code>repeated .Movie recommendations = 1;</code>
-     */
-    public com.proto.movie.Movie.Builder addRecommendationsBuilder() {
-      return getRecommendationsFieldBuilder().addBuilder(
-          com.proto.movie.Movie.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .Movie recommendations = 1;</code>
-     */
-    public com.proto.movie.Movie.Builder addRecommendationsBuilder(
-        int index) {
-      return getRecommendationsFieldBuilder().addBuilder(
-          index, com.proto.movie.Movie.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .Movie recommendations = 1;</code>
-     */
-    public java.util.List<com.proto.movie.Movie.Builder> 
-         getRecommendationsBuilderList() {
-      return getRecommendationsFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.proto.movie.Movie, com.proto.movie.Movie.Builder, com.proto.movie.MovieOrBuilder> 
-        getRecommendationsFieldBuilder() {
-      if (recommendationsBuilder_ == null) {
-        recommendationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.proto.movie.Movie, com.proto.movie.Movie.Builder, com.proto.movie.MovieOrBuilder>(
-                recommendations_,
-                ((bitField0_ & 0x00000001) != 0),
-                getParentForChildren(),
-                isClean());
-        recommendations_ = null;
-      }
-      return recommendationsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

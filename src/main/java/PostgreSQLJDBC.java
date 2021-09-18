@@ -1,11 +1,11 @@
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PostgreSQLJDBC {
-    public static ArrayList get_recommendation(String movie) {
+    public static String[] get_recommendation(String movie) {
         Connection c = null;
         Statement stmt = null;
-        ArrayList<String> movie_list = new ArrayList<String>(3);
+        String[] movie_list = new String[3];
         try {
             /* Class.forName("org.postgresql.Driver"); */
             c = DriverManager
@@ -15,10 +15,11 @@ public class PostgreSQLJDBC {
             System.out.println("Opened database successfully");
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM movies ORDER BY random() LIMIT 3;");
-            while (rs.next()) {
-//                int id = rs.getInt("movie_id");
+            int index = 0;
+            while (rs.next()){
                 String title = rs.getString("title");
-                movie_list.add(title);
+                movie_list[index] = title;
+                index++;
             }
             rs.close();
             stmt.close();

@@ -40,12 +40,11 @@ public final class MovieOuterClass {
     java.lang.String[] descriptorData = {
       "\n\013movie.proto\"\"\n\005Movie\022\n\n\002id\030\001 \001(\005\022\r\n\005ti" +
       "tle\030\002 \001(\t\"4\n\025RecommendationRequest\022\033\n\013mo" +
-      "vie_query\030\001 \001(\0132\006.Movie\"9\n\026Recommendatio" +
-      "nResponse\022\037\n\017recommendations\030\001 \003(\0132\006.Mov" +
-      "ie2\\\n\025RecommendationService\022C\n\016Recommend" +
-      "ation\022\026.RecommendationRequest\032\027.Recommen" +
-      "dationResponse\"\000B\023\n\017com.proto.movieP\001b\006p" +
-      "roto3"
+      "vie_query\030\001 \001(\0132\006.Movie\"1\n\026Recommendatio" +
+      "nResponse\022\027\n\017recommendations\030\001 \003(\t2\\\n\025Re" +
+      "commendationService\022C\n\016Recommendation\022\026." +
+      "RecommendationRequest\032\027.RecommendationRe" +
+      "sponse\"\000B\023\n\017com.proto.movieP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

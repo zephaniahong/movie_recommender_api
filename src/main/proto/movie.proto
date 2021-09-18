@@ -21,7 +21,7 @@ A recommendation response will return a list of recommended
 movies that are similar to the recommendation request
 */
 message RecommendationResponse {
-    repeated Movie recommendations = 1;
+    repeated string recommendations = 1;
 }
 
 service RecommendationService {

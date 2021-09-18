@@ -19,8 +19,8 @@ proto/main/java/com/proto/movie/RecommendationRequest.java
  com.proto.movie.RecommendationRequest
  com.proto.movie.RecommendationRequest$1
  com.proto.movie.RecommendationRequest$Builder
-proto/main/java/com/proto/movie/MovieOrBuilder.java
- com.proto.movie.MovieOrBuilder
+PostgreSQLJDBC.java
+ PostgreSQLJDBC
 proto/main/java/com/proto/movie/RecommendationRequestOrBuilder.java
  com.proto.movie.RecommendationRequestOrBuilder
 proto/main/java/com/proto/movie/MovieOuterClass.java
@@ -39,5 +39,5 @@ proto/main/java/com/proto/movie/Movie.java
  com.proto.movie.Movie
  com.proto.movie.Movie$1
  com.proto.movie.Movie$Builder
-PostgreSQLJDBC.java
- PostgreSQLJDBC
+proto/main/java/com/proto/movie/MovieOrBuilder.java
+ com.proto.movie.MovieOrBuilder
