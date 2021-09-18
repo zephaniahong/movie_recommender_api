@@ -13,29 +13,31 @@ proto/main/grpc/com/proto/movie/RecommendationServiceGrpc.java
  com.proto.movie.RecommendationServiceGrpc$RecommendationServiceImplBase
  com.proto.movie.RecommendationServiceGrpc$RecommendationServiceMethodDescriptorSupplier
  com.proto.movie.RecommendationServiceGrpc$RecommendationServiceStub
-proto/main/java/com/proto/movie/RecommendationResponse.java
- com.proto.movie.RecommendationResponse
- com.proto.movie.RecommendationResponse$1
- com.proto.movie.RecommendationResponse$Builder
 proto/main/java/com/proto/movie/RecommendationOrBuilder.java
  com.proto.movie.RecommendationOrBuilder
 proto/main/java/com/proto/movie/RecommendationRequest.java
  com.proto.movie.RecommendationRequest
  com.proto.movie.RecommendationRequest$1
  com.proto.movie.RecommendationRequest$Builder
-proto/main/java/com/proto/movie/RecommendationResponseOrBuilder.java
- com.proto.movie.RecommendationResponseOrBuilder
-proto/main/java/com/proto/movie/Recommendation.java
- com.proto.movie.Recommendation
- com.proto.movie.Recommendation$1
- com.proto.movie.Recommendation$Builder
-RecommendationServiceImpl.java
- RecommendationServiceImpl
-proto/main/java/com/proto/movie/Movie.java
- com.proto.movie.Movie
-RecommendationClient.java
- RecommendationClient
+proto/main/java/com/proto/movie/MovieOrBuilder.java
+ com.proto.movie.MovieOrBuilder
 proto/main/java/com/proto/movie/RecommendationRequestOrBuilder.java
  com.proto.movie.RecommendationRequestOrBuilder
+proto/main/java/com/proto/movie/MovieOuterClass.java
+ com.proto.movie.MovieOuterClass
+proto/main/java/com/proto/movie/RecommendationResponse.java
+ com.proto.movie.RecommendationResponse
+ com.proto.movie.RecommendationResponse$1
+ com.proto.movie.RecommendationResponse$Builder
+proto/main/java/com/proto/movie/RecommendationResponseOrBuilder.java
+ com.proto.movie.RecommendationResponseOrBuilder
+RecommendationServiceImpl.java
+ RecommendationServiceImpl
+RecommendationClient.java
+ RecommendationClient
+proto/main/java/com/proto/movie/Movie.java
+ com.proto.movie.Movie
+ com.proto.movie.Movie$1
+ com.proto.movie.Movie$Builder
 PostgreSQLJDBC.java
  PostgreSQLJDBC

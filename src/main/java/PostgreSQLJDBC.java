@@ -1,9 +1,11 @@
 import java.sql.*;
+import java.util.ArrayList;
 
 public class PostgreSQLJDBC {
-    public static void main(String args[]) {
+    public static ArrayList get_recommendation(String movie) {
         Connection c = null;
         Statement stmt = null;
+        ArrayList<String> movie_list = new ArrayList<String>(3);
         try {
             /* Class.forName("org.postgresql.Driver"); */
             c = DriverManager
@@ -12,22 +14,25 @@ public class PostgreSQLJDBC {
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM movies;" );
-            while ( rs.next() ) {
-                int id = rs.getInt("movie_id");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM movies ORDER BY random() LIMIT 3;");
+            while (rs.next()) {
+//                int id = rs.getInt("movie_id");
                 String title = rs.getString("title");
-                System.out.println( "ID = " + id );
-                System.out.println( "TITLE = " + title );
-                System.out.println();
+                movie_list.add(title);
             }
             rs.close();
             stmt.close();
             c.close();
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
         }
-        System.out.println("Operation done successfully");
+        return movie_list;
     }
+
+//    public static void main(String args[]) {
+//        ArrayList recommendations = get_recommendation("iron man");
+//        System.out.println(recommendations);
+//    }
 }

@@ -1,25 +1,12 @@
-import com.proto.movie.Recommendation;
-import com.proto.movie.RecommendationRequest;
-import com.proto.movie.RecommendationResponse;
-import com.proto.movie.RecommendationServiceGrpc;
+import com.proto.movie.*;
 import io.grpc.stub.StreamObserver;
 
-public class RecommendationServiceImpl extends RecommendationServiceGrpc.RecommendationServiceImplBase{
+public class RecommendationServiceImpl extends RecommendationServiceGrpc.RecommendationServiceImplBase {
+
     @Override
-    public void movie(RecommendationRequest request, StreamObserver<RecommendationResponse> responseObserver) {
-        Recommendation recommendation = request.getMovie();
-        String title = recommendation.getTitle();
-        String result = "Recommendation: " + title;
+    public void recommendation(RecommendationRequest request, StreamObserver<RecommendationResponse> responseObserver) {
+        Movie movie_query = request.getMovieQuery();
+        String movie_title = movie_query.getTitle();
 
-        // create a response based on the request
-        RecommendationResponse response = RecommendationResponse.newBuilder()
-                .setResult(result)
-                .build();
-
-        // send response back to client
-        responseObserver.onNext(response);
-
-        // complete the RPC call
-        responseObserver.onCompleted();
     }
 }
