@@ -16,34 +16,34 @@ public final class RecommendationServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.proto.movie.RecommendationRequest,
-      com.proto.movie.RecommendationResponse> getMovieMethod;
+      com.proto.movie.RecommendationResponse> getRecommendationMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "Movie",
+      fullMethodName = SERVICE_NAME + '/' + "Recommendation",
       requestType = com.proto.movie.RecommendationRequest.class,
       responseType = com.proto.movie.RecommendationResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.proto.movie.RecommendationRequest,
-      com.proto.movie.RecommendationResponse> getMovieMethod() {
-    io.grpc.MethodDescriptor<com.proto.movie.RecommendationRequest, com.proto.movie.RecommendationResponse> getMovieMethod;
-    if ((getMovieMethod = RecommendationServiceGrpc.getMovieMethod) == null) {
+      com.proto.movie.RecommendationResponse> getRecommendationMethod() {
+    io.grpc.MethodDescriptor<com.proto.movie.RecommendationRequest, com.proto.movie.RecommendationResponse> getRecommendationMethod;
+    if ((getRecommendationMethod = RecommendationServiceGrpc.getRecommendationMethod) == null) {
       synchronized (RecommendationServiceGrpc.class) {
-        if ((getMovieMethod = RecommendationServiceGrpc.getMovieMethod) == null) {
-          RecommendationServiceGrpc.getMovieMethod = getMovieMethod =
+        if ((getRecommendationMethod = RecommendationServiceGrpc.getRecommendationMethod) == null) {
+          RecommendationServiceGrpc.getRecommendationMethod = getRecommendationMethod =
               io.grpc.MethodDescriptor.<com.proto.movie.RecommendationRequest, com.proto.movie.RecommendationResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Movie"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Recommendation"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.proto.movie.RecommendationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.proto.movie.RecommendationResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new RecommendationServiceMethodDescriptorSupplier("Movie"))
+              .setSchemaDescriptor(new RecommendationServiceMethodDescriptorSupplier("Recommendation"))
               .build();
         }
       }
     }
-    return getMovieMethod;
+    return getRecommendationMethod;
   }
 
   /**
@@ -99,20 +99,20 @@ public final class RecommendationServiceGrpc {
      * Unary API
      * </pre>
      */
-    public void movie(com.proto.movie.RecommendationRequest request,
+    public void recommendation(com.proto.movie.RecommendationRequest request,
         io.grpc.stub.StreamObserver<com.proto.movie.RecommendationResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getMovieMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRecommendationMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getMovieMethod(),
+            getRecommendationMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.proto.movie.RecommendationRequest,
                 com.proto.movie.RecommendationResponse>(
-                  this, METHODID_MOVIE)))
+                  this, METHODID_RECOMMENDATION)))
           .build();
     }
   }
@@ -136,10 +136,10 @@ public final class RecommendationServiceGrpc {
      * Unary API
      * </pre>
      */
-    public void movie(com.proto.movie.RecommendationRequest request,
+    public void recommendation(com.proto.movie.RecommendationRequest request,
         io.grpc.stub.StreamObserver<com.proto.movie.RecommendationResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getMovieMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getRecommendationMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -162,9 +162,9 @@ public final class RecommendationServiceGrpc {
      * Unary API
      * </pre>
      */
-    public com.proto.movie.RecommendationResponse movie(com.proto.movie.RecommendationRequest request) {
+    public com.proto.movie.RecommendationResponse recommendation(com.proto.movie.RecommendationRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getMovieMethod(), getCallOptions(), request);
+          getChannel(), getRecommendationMethod(), getCallOptions(), request);
     }
   }
 
@@ -187,14 +187,14 @@ public final class RecommendationServiceGrpc {
      * Unary API
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.proto.movie.RecommendationResponse> movie(
+    public com.google.common.util.concurrent.ListenableFuture<com.proto.movie.RecommendationResponse> recommendation(
         com.proto.movie.RecommendationRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getMovieMethod(), getCallOptions()), request);
+          getChannel().newCall(getRecommendationMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_MOVIE = 0;
+  private static final int METHODID_RECOMMENDATION = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -213,8 +213,8 @@ public final class RecommendationServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_MOVIE:
-          serviceImpl.movie((com.proto.movie.RecommendationRequest) request,
+        case METHODID_RECOMMENDATION:
+          serviceImpl.recommendation((com.proto.movie.RecommendationRequest) request,
               (io.grpc.stub.StreamObserver<com.proto.movie.RecommendationResponse>) responseObserver);
           break;
         default:
@@ -239,7 +239,7 @@ public final class RecommendationServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.proto.movie.Movie.getDescriptor();
+      return com.proto.movie.MovieOuterClass.getDescriptor();
     }
 
     @java.lang.Override
@@ -278,7 +278,7 @@ public final class RecommendationServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new RecommendationServiceFileDescriptorSupplier())
-              .addMethod(getMovieMethod())
+              .addMethod(getRecommendationMethod())
               .build();
         }
       }

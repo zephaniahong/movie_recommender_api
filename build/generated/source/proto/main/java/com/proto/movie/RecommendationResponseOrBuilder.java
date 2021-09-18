@@ -8,14 +8,26 @@ public interface RecommendationResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string result = 1;</code>
-   * @return The result.
+   * <code>repeated .Movie recommendations = 1;</code>
    */
-  java.lang.String getResult();
+  java.util.List<com.proto.movie.Movie> 
+      getRecommendationsList();
   /**
-   * <code>string result = 1;</code>
-   * @return The bytes for result.
+   * <code>repeated .Movie recommendations = 1;</code>
    */
-  com.google.protobuf.ByteString
-      getResultBytes();
+  com.proto.movie.Movie getRecommendations(int index);
+  /**
+   * <code>repeated .Movie recommendations = 1;</code>
+   */
+  int getRecommendationsCount();
+  /**
+   * <code>repeated .Movie recommendations = 1;</code>
+   */
+  java.util.List<? extends com.proto.movie.MovieOrBuilder> 
+      getRecommendationsOrBuilderList();
+  /**
+   * <code>repeated .Movie recommendations = 1;</code>
+   */
+  com.proto.movie.MovieOrBuilder getRecommendationsOrBuilder(
+      int index);
 }

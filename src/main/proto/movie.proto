@@ -3,24 +3,28 @@ syntax = "proto3";
 option java_package = "com.proto.movie";
 option java_multiple_files = true;
 
-// this should be movie
-message Recommendation {
+
+// Each movie has a unique ID and a corresponding title
+message Movie {
     int32 id = 1;
     string title = 2;
 }
 
-// recommendation should be a list of movies
 
-// should be a query by movie
+// When making a request, there should be only one movie title
 message RecommendationRequest {
-    Recommendation movie = 1;
+    Movie movie_query = 1;
 }
 
+/*
+A recommendation response will return a list of recommended
+movies that are similar to the recommendation request
+*/
 message RecommendationResponse {
-    string result = 1;
+    repeated Movie recommendations = 1;
 }
 
 service RecommendationService {
     // Unary API
-    rpc Movie(RecommendationRequest) returns (RecommendationResponse) {};
+    rpc Recommendation(RecommendationRequest) returns (RecommendationResponse) {};
 }

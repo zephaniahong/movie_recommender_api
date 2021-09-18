@@ -5,7 +5,7 @@ package com.proto.movie;
 
 /**
  * <pre>
- * should be a query by movie
+ * When making a request, there should be only one movie title
  * </pre>
  *
  * Protobuf type {@code RecommendationRequest}
@@ -53,14 +53,14 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            com.proto.movie.Recommendation.Builder subBuilder = null;
-            if (movie_ != null) {
-              subBuilder = movie_.toBuilder();
+            com.proto.movie.Movie.Builder subBuilder = null;
+            if (movieQuery_ != null) {
+              subBuilder = movieQuery_.toBuilder();
             }
-            movie_ = input.readMessage(com.proto.movie.Recommendation.parser(), extensionRegistry);
+            movieQuery_ = input.readMessage(com.proto.movie.Movie.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(movie_);
-              movie_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(movieQuery_);
+              movieQuery_ = subBuilder.buildPartial();
             }
 
             break;
@@ -86,41 +86,41 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.proto.movie.Movie.internal_static_RecommendationRequest_descriptor;
+    return com.proto.movie.MovieOuterClass.internal_static_RecommendationRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.proto.movie.Movie.internal_static_RecommendationRequest_fieldAccessorTable
+    return com.proto.movie.MovieOuterClass.internal_static_RecommendationRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.proto.movie.RecommendationRequest.class, com.proto.movie.RecommendationRequest.Builder.class);
   }
 
-  public static final int MOVIE_FIELD_NUMBER = 1;
-  private com.proto.movie.Recommendation movie_;
+  public static final int MOVIE_QUERY_FIELD_NUMBER = 1;
+  private com.proto.movie.Movie movieQuery_;
   /**
-   * <code>.Recommendation movie = 1;</code>
-   * @return Whether the movie field is set.
+   * <code>.Movie movie_query = 1;</code>
+   * @return Whether the movieQuery field is set.
    */
   @java.lang.Override
-  public boolean hasMovie() {
-    return movie_ != null;
+  public boolean hasMovieQuery() {
+    return movieQuery_ != null;
   }
   /**
-   * <code>.Recommendation movie = 1;</code>
-   * @return The movie.
+   * <code>.Movie movie_query = 1;</code>
+   * @return The movieQuery.
    */
   @java.lang.Override
-  public com.proto.movie.Recommendation getMovie() {
-    return movie_ == null ? com.proto.movie.Recommendation.getDefaultInstance() : movie_;
+  public com.proto.movie.Movie getMovieQuery() {
+    return movieQuery_ == null ? com.proto.movie.Movie.getDefaultInstance() : movieQuery_;
   }
   /**
-   * <code>.Recommendation movie = 1;</code>
+   * <code>.Movie movie_query = 1;</code>
    */
   @java.lang.Override
-  public com.proto.movie.RecommendationOrBuilder getMovieOrBuilder() {
-    return getMovie();
+  public com.proto.movie.MovieOrBuilder getMovieQueryOrBuilder() {
+    return getMovieQuery();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -137,8 +137,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (movie_ != null) {
-      output.writeMessage(1, getMovie());
+    if (movieQuery_ != null) {
+      output.writeMessage(1, getMovieQuery());
     }
     unknownFields.writeTo(output);
   }
@@ -149,9 +149,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (movie_ != null) {
+    if (movieQuery_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getMovie());
+        .computeMessageSize(1, getMovieQuery());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -168,10 +168,10 @@ private static final long serialVersionUID = 0L;
     }
     com.proto.movie.RecommendationRequest other = (com.proto.movie.RecommendationRequest) obj;
 
-    if (hasMovie() != other.hasMovie()) return false;
-    if (hasMovie()) {
-      if (!getMovie()
-          .equals(other.getMovie())) return false;
+    if (hasMovieQuery() != other.hasMovieQuery()) return false;
+    if (hasMovieQuery()) {
+      if (!getMovieQuery()
+          .equals(other.getMovieQuery())) return false;
     }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -184,9 +184,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasMovie()) {
-      hash = (37 * hash) + MOVIE_FIELD_NUMBER;
-      hash = (53 * hash) + getMovie().hashCode();
+    if (hasMovieQuery()) {
+      hash = (37 * hash) + MOVIE_QUERY_FIELD_NUMBER;
+      hash = (53 * hash) + getMovieQuery().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -285,7 +285,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * should be a query by movie
+   * When making a request, there should be only one movie title
    * </pre>
    *
    * Protobuf type {@code RecommendationRequest}
@@ -296,13 +296,13 @@ private static final long serialVersionUID = 0L;
       com.proto.movie.RecommendationRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.proto.movie.Movie.internal_static_RecommendationRequest_descriptor;
+      return com.proto.movie.MovieOuterClass.internal_static_RecommendationRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.proto.movie.Movie.internal_static_RecommendationRequest_fieldAccessorTable
+      return com.proto.movie.MovieOuterClass.internal_static_RecommendationRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.proto.movie.RecommendationRequest.class, com.proto.movie.RecommendationRequest.Builder.class);
     }
@@ -325,11 +325,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (movieBuilder_ == null) {
-        movie_ = null;
+      if (movieQueryBuilder_ == null) {
+        movieQuery_ = null;
       } else {
-        movie_ = null;
-        movieBuilder_ = null;
+        movieQuery_ = null;
+        movieQueryBuilder_ = null;
       }
       return this;
     }
@@ -337,7 +337,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.proto.movie.Movie.internal_static_RecommendationRequest_descriptor;
+      return com.proto.movie.MovieOuterClass.internal_static_RecommendationRequest_descriptor;
     }
 
     @java.lang.Override
@@ -357,10 +357,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.proto.movie.RecommendationRequest buildPartial() {
       com.proto.movie.RecommendationRequest result = new com.proto.movie.RecommendationRequest(this);
-      if (movieBuilder_ == null) {
-        result.movie_ = movie_;
+      if (movieQueryBuilder_ == null) {
+        result.movieQuery_ = movieQuery_;
       } else {
-        result.movie_ = movieBuilder_.build();
+        result.movieQuery_ = movieQueryBuilder_.build();
       }
       onBuilt();
       return result;
@@ -410,8 +410,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.proto.movie.RecommendationRequest other) {
       if (other == com.proto.movie.RecommendationRequest.getDefaultInstance()) return this;
-      if (other.hasMovie()) {
-        mergeMovie(other.getMovie());
+      if (other.hasMovieQuery()) {
+        mergeMovieQuery(other.getMovieQuery());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -442,123 +442,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.proto.movie.Recommendation movie_;
+    private com.proto.movie.Movie movieQuery_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.proto.movie.Recommendation, com.proto.movie.Recommendation.Builder, com.proto.movie.RecommendationOrBuilder> movieBuilder_;
+        com.proto.movie.Movie, com.proto.movie.Movie.Builder, com.proto.movie.MovieOrBuilder> movieQueryBuilder_;
     /**
-     * <code>.Recommendation movie = 1;</code>
-     * @return Whether the movie field is set.
+     * <code>.Movie movie_query = 1;</code>
+     * @return Whether the movieQuery field is set.
      */
-    public boolean hasMovie() {
-      return movieBuilder_ != null || movie_ != null;
+    public boolean hasMovieQuery() {
+      return movieQueryBuilder_ != null || movieQuery_ != null;
     }
     /**
-     * <code>.Recommendation movie = 1;</code>
-     * @return The movie.
+     * <code>.Movie movie_query = 1;</code>
+     * @return The movieQuery.
      */
-    public com.proto.movie.Recommendation getMovie() {
-      if (movieBuilder_ == null) {
-        return movie_ == null ? com.proto.movie.Recommendation.getDefaultInstance() : movie_;
+    public com.proto.movie.Movie getMovieQuery() {
+      if (movieQueryBuilder_ == null) {
+        return movieQuery_ == null ? com.proto.movie.Movie.getDefaultInstance() : movieQuery_;
       } else {
-        return movieBuilder_.getMessage();
+        return movieQueryBuilder_.getMessage();
       }
     }
     /**
-     * <code>.Recommendation movie = 1;</code>
+     * <code>.Movie movie_query = 1;</code>
      */
-    public Builder setMovie(com.proto.movie.Recommendation value) {
-      if (movieBuilder_ == null) {
+    public Builder setMovieQuery(com.proto.movie.Movie value) {
+      if (movieQueryBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        movie_ = value;
+        movieQuery_ = value;
         onChanged();
       } else {
-        movieBuilder_.setMessage(value);
+        movieQueryBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.Recommendation movie = 1;</code>
+     * <code>.Movie movie_query = 1;</code>
      */
-    public Builder setMovie(
-        com.proto.movie.Recommendation.Builder builderForValue) {
-      if (movieBuilder_ == null) {
-        movie_ = builderForValue.build();
+    public Builder setMovieQuery(
+        com.proto.movie.Movie.Builder builderForValue) {
+      if (movieQueryBuilder_ == null) {
+        movieQuery_ = builderForValue.build();
         onChanged();
       } else {
-        movieBuilder_.setMessage(builderForValue.build());
+        movieQueryBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.Recommendation movie = 1;</code>
+     * <code>.Movie movie_query = 1;</code>
      */
-    public Builder mergeMovie(com.proto.movie.Recommendation value) {
-      if (movieBuilder_ == null) {
-        if (movie_ != null) {
-          movie_ =
-            com.proto.movie.Recommendation.newBuilder(movie_).mergeFrom(value).buildPartial();
+    public Builder mergeMovieQuery(com.proto.movie.Movie value) {
+      if (movieQueryBuilder_ == null) {
+        if (movieQuery_ != null) {
+          movieQuery_ =
+            com.proto.movie.Movie.newBuilder(movieQuery_).mergeFrom(value).buildPartial();
         } else {
-          movie_ = value;
+          movieQuery_ = value;
         }
         onChanged();
       } else {
-        movieBuilder_.mergeFrom(value);
+        movieQueryBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.Recommendation movie = 1;</code>
+     * <code>.Movie movie_query = 1;</code>
      */
-    public Builder clearMovie() {
-      if (movieBuilder_ == null) {
-        movie_ = null;
+    public Builder clearMovieQuery() {
+      if (movieQueryBuilder_ == null) {
+        movieQuery_ = null;
         onChanged();
       } else {
-        movie_ = null;
-        movieBuilder_ = null;
+        movieQuery_ = null;
+        movieQueryBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.Recommendation movie = 1;</code>
+     * <code>.Movie movie_query = 1;</code>
      */
-    public com.proto.movie.Recommendation.Builder getMovieBuilder() {
+    public com.proto.movie.Movie.Builder getMovieQueryBuilder() {
       
       onChanged();
-      return getMovieFieldBuilder().getBuilder();
+      return getMovieQueryFieldBuilder().getBuilder();
     }
     /**
-     * <code>.Recommendation movie = 1;</code>
+     * <code>.Movie movie_query = 1;</code>
      */
-    public com.proto.movie.RecommendationOrBuilder getMovieOrBuilder() {
-      if (movieBuilder_ != null) {
-        return movieBuilder_.getMessageOrBuilder();
+    public com.proto.movie.MovieOrBuilder getMovieQueryOrBuilder() {
+      if (movieQueryBuilder_ != null) {
+        return movieQueryBuilder_.getMessageOrBuilder();
       } else {
-        return movie_ == null ?
-            com.proto.movie.Recommendation.getDefaultInstance() : movie_;
+        return movieQuery_ == null ?
+            com.proto.movie.Movie.getDefaultInstance() : movieQuery_;
       }
     }
     /**
-     * <code>.Recommendation movie = 1;</code>
+     * <code>.Movie movie_query = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.proto.movie.Recommendation, com.proto.movie.Recommendation.Builder, com.proto.movie.RecommendationOrBuilder> 
-        getMovieFieldBuilder() {
-      if (movieBuilder_ == null) {
-        movieBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.proto.movie.Recommendation, com.proto.movie.Recommendation.Builder, com.proto.movie.RecommendationOrBuilder>(
-                getMovie(),
+        com.proto.movie.Movie, com.proto.movie.Movie.Builder, com.proto.movie.MovieOrBuilder> 
+        getMovieQueryFieldBuilder() {
+      if (movieQueryBuilder_ == null) {
+        movieQueryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.proto.movie.Movie, com.proto.movie.Movie.Builder, com.proto.movie.MovieOrBuilder>(
+                getMovieQuery(),
                 getParentForChildren(),
                 isClean());
-        movie_ = null;
+        movieQuery_ = null;
       }
-      return movieBuilder_;
+      return movieQueryBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

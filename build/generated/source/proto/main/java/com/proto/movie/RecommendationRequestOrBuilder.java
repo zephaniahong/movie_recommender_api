@@ -8,17 +8,17 @@ public interface RecommendationRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.Recommendation movie = 1;</code>
-   * @return Whether the movie field is set.
+   * <code>.Movie movie_query = 1;</code>
+   * @return Whether the movieQuery field is set.
    */
-  boolean hasMovie();
+  boolean hasMovieQuery();
   /**
-   * <code>.Recommendation movie = 1;</code>
-   * @return The movie.
+   * <code>.Movie movie_query = 1;</code>
+   * @return The movieQuery.
    */
-  com.proto.movie.Recommendation getMovie();
+  com.proto.movie.Movie getMovieQuery();
   /**
-   * <code>.Recommendation movie = 1;</code>
+   * <code>.Movie movie_query = 1;</code>
    */
-  com.proto.movie.RecommendationOrBuilder getMovieOrBuilder();
+  com.proto.movie.MovieOrBuilder getMovieQueryOrBuilder();
 }
